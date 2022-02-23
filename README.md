@@ -7,6 +7,9 @@
 ## Setup
 
 ```bash
+# first download the pretrained model, "facebook/dpr-question_encoder-multiset-base"
+python save-model.py
+
 # build the application
 sam build
 
