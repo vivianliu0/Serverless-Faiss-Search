@@ -1,4 +1,5 @@
 # Serverless-Faiss-Search
+This repository contains a lambda that searches a small faiss index. Below is a short setup to build the application and deploy it to AWS.
 
 ## Requirements
 - Python 3.8
@@ -28,3 +29,12 @@ python test-search-lambda.py
 ```
 
 And the output should be like `CACM-2445`
+
+## Next Steps
+The next step of the project would be to scale up the example to an entire DPR index. 
+An example of a index that could be used from the pyserini repository can be found [here](https://github.com/castorini/pyserini/blob/master/pyserini/prebuilt_index_info.py#L1369)
+Since DPR indices are quite large, the index will need to be partitioned into smaller chunks (perhaps 2-5GB each) and searched in parallel. The results from
+all of the partitions would be gathered together and the top results would be returned to the user. An integration test of how an index can be partitioned can be found
+[here](https://github.com/castorini/pyserini/pull/1074)
+
+
